@@ -1,7 +1,5 @@
-// src/pages/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
-// import QRCode from 'qrcode.react';
 import { QRCodeSVG } from 'qrcode.react';
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +8,7 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/register', { email, password });
+      const res = await axios.post('http://127.0.0.1:5000/register', { email, password });
       setOtpUri(res.data.otp_uri);
     } catch (err) {
       alert(err.response.data.error || "Registration failed");

@@ -1,4 +1,3 @@
-// src/pages/OTPVerification.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +9,7 @@ const OTPVerification = () => {
 
   const handleVerify = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/verify', { email, otp });
+      const res = await axios.post('http://127.0.0.1:5000/verify', { email, otp });
       if (res.data.message === 'Login successful') {
         navigate('/success');
       }
