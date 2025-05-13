@@ -23,7 +23,7 @@ const Register = () => {
 
   const handleOtpVerify = async () => {
     try {
-      const res = await axios.post('http://127.0.0.1:5000/verify', { email, otp });
+      const res = await axios.post('http://127.0.0.1:5000/verify-otp', { email, otp });
       if (res.data.message === 'Login successful') {
         navigate('/success');
       }

@@ -21,6 +21,7 @@ client = MongoClient(MONGO_URI)
 db = client["mfa_demo"]
 users = db["users"]
 
+
 @app.route("/register", methods=["POST"])
 def register():
     data = request.json
@@ -33,20 +34,35 @@ def register():
     if users.find_one({"email": email}):
         return jsonify({"error": "User already exists"}), 400
 
-    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
     secret = pyotp.random_base32()
-    otp_uri = pyotp.totp.TOTP(secret).provisioning_uri(name=email, issuer_name="ReactFlaskMFA")
+    otp_uri = pyotp.totp.TOTP(secret).provisioning_uri(
+        name=email, issuer_name="ReactFlaskMFA"
+    )
 
-    users.insert_one({
-        "email": email,
-        "password": hashed_pw,
-        "secret": secret
-    })
+    users.insert_one({"email": email, "password": hashed_pw, "secret": secret})
 
     return jsonify({"otp_uri": otp_uri}), 200
 
-@app.route("/verify", methods=["POST"])
-def verify():
+
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+
+    user = users.find_one({"email": email})
+    if not user:
+        return jsonify({"error": "Invalid user. Kindly register."}), 404
+
+    if bcrypt.checkpw(password.encode("utf-8"), user["password"]):
+        return jsonify({"message": "Password matched"}), 200
+    else:
+        return jsonify({"error": "Invalid user. Kindly register."}), 401
+
+
+@app.route("/verify-otp", methods=["POST"])
+def verify_otp():
     data = request.json
     email = data.get("email")
     otp = data.get("otp")
@@ -60,6 +76,7 @@ def verify():
         return jsonify({"message": "Login successful"}), 200
     else:
         return jsonify({"error": "Invalid OTP"}), 401
+
 
 if __name__ == "__main__":
     app.run(debug=True)
