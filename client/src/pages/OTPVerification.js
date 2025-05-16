@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { TextField, PrimaryButton } from '@fluentui/react';
 
 const OTPVerification = () => {
   const [otp, setOtp] = useState('');
@@ -19,10 +20,10 @@ const OTPVerification = () => {
   };
 
   return (
-    <div>
-      <h2>Enter OTP from Google Authenticator</h2>
-      <input placeholder="6-digit OTP" value={otp} onChange={e => setOtp(e.target.value)} />
-      <button onClick={handleVerify}>Verify OTP</button>
+    <div style={{ maxWidth: '400px', margin: '50px auto', textAlign: 'center' }}>
+      <h2>OTP Verification</h2>
+      <TextField label="Enter OTP" required value={otp} onChange={(_, newValue) => setOtp(newValue)} />
+      <PrimaryButton style={{ marginTop: '20px' }} onClick={handleVerify}>Verify</PrimaryButton>
     </div>
   );
 };
