@@ -3,6 +3,7 @@ import axios from 'axios';
 import { QRCodeSVG } from 'qrcode.react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, PrimaryButton } from '@fluentui/react';
+import '../App.css'; // Import the CSS file
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -34,12 +35,12 @@ const Register = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', textAlign: 'center' }}>
-      <h2>Register</h2>
+    <div className="glass-card">
+      <h2>Sign Up</h2>
       <TextField label="Email" required value={email} onChange={(_, newValue) => setEmail(newValue)} />
       <TextField label="Password" type="password" required value={password} onChange={(_, newValue) => setPassword(newValue)} />
       <TextField label="Confirm Password" type="password" required />
-      <PrimaryButton style={{ marginTop: '20px' }} onClick={handleRegister}>Register</PrimaryButton>
+      <PrimaryButton style={{ marginTop: '20px' }} onClick={handleRegister}>Sign Up</PrimaryButton>
 
       {otpUri && (
         <div>
@@ -49,14 +50,14 @@ const Register = () => {
       )}
 
       {showOtpInput && (
-        <div style={{ marginTop: '16px', padding: '8px 16px' }}>
+        <div style={{ marginTop: '16px' }}>
           <h4>Enter OTP from Google Authenticator</h4>
-          <TextField label ="Enter 6-digit OTP" value={otp} onChange={e => setOtp(e.target.value)} />
+          <TextField placeholder="Enter 6-digit OTP" value={otp} onChange={e => setOtp(e.target.value)} />
           <PrimaryButton onClick={handleOtpVerify}style={{ marginTop: '10px', padding: '8px 16px' }}>Verify OTP</PrimaryButton>
         </div>
       )}
 
-      <p style={{ marginTop: '30px' }}>
+      <p style={{ marginTop: '20px' }}>
         Already have an account?{' '}
         <button onClick={() => navigate('/login')} style={{ color: 'blue', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer' }}>
           Login

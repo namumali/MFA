@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { TextField, PrimaryButton } from '@fluentui/react';
+import '../App.css'; // Import the CSS file
 
 const OTPVerification = () => {
   const [otp, setOtp] = useState('');
@@ -20,7 +21,7 @@ const OTPVerification = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', textAlign: 'center' }}>
+    <div className="glass-card">
       <h2>OTP Verification</h2>
       <TextField label="Enter OTP" required value={otp} onChange={(_, newValue) => setOtp(newValue)} />
       <PrimaryButton style={{ marginTop: '20px' }} onClick={handleVerify}>Verify</PrimaryButton>

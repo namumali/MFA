@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { TextField, PrimaryButton } from '@fluentui/react';
+import '../App.css'; // Import the CSS file
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -33,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', textAlign: 'center' }}>
+    <div className="glass-card">
       <h2>Login</h2>
       <TextField label="Email" required value={email} onChange={(_, newValue) => setEmail(newValue)} />
       <TextField label="Password" type="password" required value={password} onChange={(_, newValue) => setPassword(newValue)} />
@@ -43,7 +44,7 @@ const Login = () => {
         <div style={{ marginTop: '20px' }}>
           <h4>Enter OTP from Google Authenticator</h4>
           <TextField label="Enter 6-digit OTP" value={otp} onChange={(_, newValue) => setOtp(newValue)} />
-          <PrimaryButton onClick={handleOtpVerify}style={{ marginTop: '12px', padding: '8px 16px' }}>Verify OTP</PrimaryButton>
+          <PrimaryButton onClick={handleOtpVerify} style={{ marginTop: '12px', padding: '8px 16px' }}>Verify OTP</PrimaryButton>
         </div>
       )}
 

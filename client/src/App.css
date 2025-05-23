@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}

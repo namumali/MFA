@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PrimaryButton } from '@fluentui/react';
+import '../App.css'; // Import the CSS file
 
 function Success() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function Success() {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', textAlign: 'center' }}>
+    <div className="glass-card">
       <h2>Success</h2>
       <p>Multi-factor authentication successful!</p>
       <PrimaryButton style={{ marginTop: '20px' }} onClick={handleLogout}>
