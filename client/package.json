@@ -5,6 +5,7 @@
   "dependencies": {
     "@fluentui/react": "^8.122.18",
     "@fluentui/react-components": "^9.64.0",
+    "@react-hook/window-size": "^3.1.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -12,6 +13,7 @@
     "axios": "^1.9.0",
     "qrcode.react": "^4.2.0",
     "react": "^18.2.0",
+    "react-confetti": "^6.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.6.0",
     "react-scripts": "5.0.1",

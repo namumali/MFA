@@ -23,18 +23,3 @@ function App() {
 }
 
 export default App;
-
-const handleRegistration = async () => {
-    const response = await fetch('/register', {
-        method: 'POST',
-        body: JSON.stringify({ username, password }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-        alert('Registration successful. Redirecting to login...');
-        navigate('/login'); // Redirect to login page
-    } else {
-        alert('Registration failed');
-    }
-};
