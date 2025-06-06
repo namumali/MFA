@@ -23,16 +23,17 @@ const Register = () => {
     }
   };
 
-
-const handleConfirmScan = async () => {
-  try {
-    const res = await axios.post('http://127.0.0.1:5000/confirm-scan', { email });
-    alert(res.data.message || "QR code scanned successfully");
-    navigate("/login"); 
-  } catch (err) {
-    alert(err.response?.data?.error || "Failed to confirm QR code scan");
-  }
-};
+  const handleConfirmScan = async () => {
+    try {
+      const res = await axios.post("http://127.0.0.1:5000/confirm-scan", {
+        email,
+      });
+      alert(res.data.message || "QR code scanned successfully");
+      navigate("/login");
+    } catch (err) {
+      alert(err.response?.data?.error || "Failed to confirm QR code scan");
+    }
+  };
   return (
     <div className="glass-card">
       <h2>Sign Up</h2>
@@ -55,9 +56,16 @@ const handleConfirmScan = async () => {
       </PrimaryButton>
 
       {otpUri && (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
           <h4>Scan QR with Google Authenticator</h4>
-          <QRCodeSVG value={otpUri} />
+          <QRCodeSVG value={otpUri} style={{ marginBottom: "20px" }} />
           <PrimaryButton
             style={{ marginTop: "10px" }}
             onClick={handleConfirmScan}
@@ -79,7 +87,7 @@ const handleConfirmScan = async () => {
             cursor: "pointer",
           }}
         >
-          Login
+        Login
         </button>
       </p>
     </div>

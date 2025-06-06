@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="glass-card">
-      <h2>Login</h2>
+      <h2 style={{ textAlign: "center" }}>Login</h2> 
       <TextField
         label="Email"
         required
@@ -93,7 +93,7 @@ const Login = () => {
             cursor: "pointer",
           }}
         >
-          Sign Up
+        Sign Up
         </button>
       </p>
     </div>
