@@ -17,7 +17,7 @@ const Login = () => {
         email,
         password,
       });
-      if (res.data.message == "Login successful (MFA skipped)") {
+      if (res.data.message === "Login successful (MFA skipped)") {
         navigate("/success");
       } else {
         setIsVerified(true);
