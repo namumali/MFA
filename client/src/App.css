@@ -49,3 +49,49 @@
   margin: 50px auto;
   text-align: center;
 }
+
+.game-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-container h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.game-container button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0078d4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-container button:hover {
+  background-color: #005a9e;
+}
+
+.game-container .content {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.game-container .content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.game-container .content h2 {
+  font-size: 1.2rem;
+  color: #0078d4;
+}
