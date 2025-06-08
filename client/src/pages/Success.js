@@ -5,7 +5,7 @@ import { PrimaryButton } from '@fluentui/react';
 import '../App.css'; //
 import Confetti from 'react-confetti'
 
-//Game Component
+
 class Game extends Component {
   constructor(props) {
     super(props);

@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="glass-card">
-      <h2 style={{ textAlign: "center" }}>Login</h2> 
+      <h2 style={{ marginLeft: "-10px" }}>Login</h2>
       <TextField
         label="Email"
         required
