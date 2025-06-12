@@ -16,6 +16,7 @@ CORS(app)
 
 # Get Mongo URI from environment
 MONGO_URI = os.getenv("MONGO_URI")
+TWO_MINUTES_MS = os.getenv("TWO_MINUTES_MS")
 if not MONGO_URI:
     raise RuntimeError("MONGO_URI is not set in environment variables")
 
@@ -24,8 +25,6 @@ client = MongoClient(MONGO_URI, tlsAllowInvalidCertificates=True)
 db = client["mfa_demo"]
 users = db["users"]
 
-# Two minutes in milliseconds
-TWO_MINUTES_MS = 2 * 60 * 1000
 
 
 def get_unix_timestamp_ms():
@@ -104,9 +103,10 @@ def login():
     # Current time in milliseconds
     current_time_ms = get_unix_timestamp_ms()
     last_login_time_ms = user.get("lastLoginTime", 0)
+    print(f"Current time: {current_time_ms}, Last login time: {last_login_time_ms},TWO_MINUTES_MS: {TWO_MINUTES_MS}")
+    # Check if the difference is within TWO_MINUTES_MS  
 
-    # Check if the difference is within TWO_MINUTES_MS
-    if (current_time_ms - last_login_time_ms) <= TWO_MINUTES_MS:
+    if (current_time_ms - last_login_time_ms) <= int(TWO_MINUTES_MS):
         # Skip MFA if password is valid
         if validate_password(password, user["password"]):
             update_last_login_time(user["_id"], current_time_ms)
