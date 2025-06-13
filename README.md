@@ -10,15 +10,18 @@ This project is a web-based application that implements Multi-Factor Authenticat
   - Email and password-based authentication.
   - OTP verification for enhanced security.
   - Navigation to the success page upon successful login.
+  ![Screenshot 2025-06-08 140515](https://github.com/user-attachments/assets/caa0f4f9-42a6-4d3e-934b-92beef90cb73)
 
 - **Sign-Up Page**:
   - QR code generation for Google Authenticator setup.
   - User registration functionality.
+  ![Screenshot 2025-06-08 140227](https://github.com/user-attachments/assets/dd2e4036-eae8-42c0-8b58-dec1a1ef8c0c)
 
 - **Success Page**:
-  - Confetti animation to celebrate successful login.
+  - Confetti animation to celebrate a successful login.
   - Embedded Rock, Paper, Scissors game for user engagement.
   - Logout functionality.
+  ![Screenshot (252)](https://github.com/user-attachments/assets/0bc7f682-145c-464a-b947-cc62f1698a37)
 
 ## Technologies Used
 
@@ -63,7 +66,7 @@ This project is a web-based application that implements Multi-Factor Authenticat
 - **client/src/pages**:
   - `Login.js`: Handles user login.
   - `SignUp.js`: Handles user registration and QR code generation.
-  - `Success.js`: Displays success message, confetti, and the game.
+  - `Success.js`: Displays a success message, confetti, and the game.
 
 - **client/src**:
   - `App.css`: Contains global styles for the application.
