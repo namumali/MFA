@@ -38,7 +38,7 @@ This project is a web-based application that implements Multi-Factor Authenticat
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/mfa-app.git
+   git clone https://github.com/namumali/MFA
    cd mfa-app
    ```
 
@@ -75,7 +75,3 @@ This project is a web-based application that implements Multi-Factor Authenticat
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-
-## Contact
-
-For any inquiries, please contact [your
